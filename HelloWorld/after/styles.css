@@ -12,6 +12,9 @@
     font-weight: bold;
     color: chocolate;
 }
+#main-content {
+    padding: 10px;
+}
 
 #main-content > p {
     font-weight: bold;
