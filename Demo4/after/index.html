@@ -1,0 +1,45 @@
+<html>
+<head>
+    <title>Simple Page Using jQuery</title>
+    <link href="styles.css" rel="stylesheet"/>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <script>
+      $(document).ready(function () {
+
+        function isPalindrome(str) {
+          str = str.toLowerCase();
+          let len = str.length;
+          for (let i = 0; i < len / 2; i++) {
+            if (str[i] !== str[len - 1 - i]) {
+              return false;
+            }
+          }
+          return true;
+        }
+
+
+        $("#myForm").submit(function (event) {
+          event.preventDefault();
+          let word = $("#word").val();
+          if (isPalindrome(word)) {
+            $("#message").html('Great. Palindrome Found');
+          } else {
+            $("#message").html('Nope. Incorrect');
+          }
+        });
+      });
+    </script>
+</head>
+<body>
+
+<h1 class="headline">Please Enter the word here</h1>
+<form action="submit.html" id="myForm" method="post">
+    <label for="word">Word:</label>
+    <input type="text" name="word" id="word">
+    <input type="submit" value="Submit Your Word">
+</form>
+
+<div id="message"></div>
+
+</body>
+</html>
